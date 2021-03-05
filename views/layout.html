@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{block 'title'}}Document{{/block}}</title>
+  <link rel="stylesheet" href="/public/lib/bootstrap-3.3.7/css/bootstrap.min.css">
+
+  {{block 'head'}}{{/block}}
+  
+</head>
+
+<body>
+
+  <!-- 子模板模板 -->
+  {{include './_partials/header.html'}}
+
+  {{block 'content'}}{{/block}}
+
+  {{include './_partials/footer.html'}}
+
+  <script src="/public/lib/jquery/jquery-3.3.1.min.js"></script>
+  <script src="/public/lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+  {{block 'script'}}{{/block}}
+</body>
+
+</html>

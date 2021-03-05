@@ -1,0 +1,62 @@
+{{extend './layout.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/index.css">
+{{/block}}
+
+{{block 'content'}}
+
+<!-- 头部 -->
+<div class="jumbotron jump">
+  <div class="container">
+    <h2>玩转Node.js-之首页</h2>
+
+    <p> 玩转-Node.js</p>
+  </div>
+</div>
+
+<!-- 列表 -->
+<section class="container">
+  <ul class="media-list">
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+          <img width="40" height="40" class="media-object" src="/public/img/avatar-default.png" alt="...">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="#">Media heading</a></h4>
+        <p>sueysok 回复了问题 · 两人关注 · 1个回复 · 187次浏览 · 2019-10-24 13:45</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- 分页 -->
+<section class="page">
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
+{{/block}}
+
+{{block 'script'}}{{/block}}

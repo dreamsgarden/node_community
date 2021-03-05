@@ -1,0 +1,81 @@
+{{extend './layout.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/public/css/login.css">
+{{/block}}
+
+{{block 'content'}}
+<!-- 头部 -->
+<div class="jumbotron jump">
+  <div class="container">
+    <h2>玩转Node.js-之登录</h2>
+    
+    <p> 玩转-Node.js</p>
+  </div>
+</div>
+
+<!-- 中间内容区局 -->
+<div class="container">
+  <form id="login_from">
+    <div class="form-group">
+      <label for="email">邮箱</label>
+      <input type="text" name="email" id="email" class="form-control" value="" placeholder="email">
+    </div>
+    <div class="form-group">
+      <label for="nickname">昵称</label>
+      <input type="text" name="nickname" id="nickname" class="form-control" value="" placeholder="nickname">
+    </div>
+    <div class="form-group">
+      <label for="password">密码</label>
+      <a href="" class="pull-right">忘记密码？</a>
+      <input type="password" name="password" id="password" class="form-control" value="" placeholder="password">
+    </div>
+    <div class="checkout">
+      <label for="">
+        <input type="checkbox" name="" id=""> 记住我
+      </label>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="登录" class="btn btn-success">
+      <input type="reset" value="清空" class="btn btn-danger">
+    </div>
+  </form>
+
+  <div class="message">
+    <p>没有账号? <a href="/register">点击注册</a></p>
+  </div>
+</div>
+
+{{/block}}
+
+{{block 'script'}}
+<script>
+  $('#login_from').submit(function (e) {
+    //阻止表单提交
+    e.preventDefault()
+    //收集表单数据
+    var formData = $(this).serialize()
+    console.log(formData)
+
+    $.ajax({
+      url: '/login',
+      type: 'post',
+      data: formData,
+      dataType: 'json',
+      success: function (data) {
+        console.log(data);
+        if (data.code === 0) {
+          window.alert('登录成功，跳转中...')
+          window.location.href = '/index'
+        } else if (data.code === 1) {
+          window.alert(data.message)
+        } else if (data.code === 500) {
+          window.alert('服务器忙，请稍后重试！')
+        }
+      }
+    })
+  })
+</script>
+{{/block}}
